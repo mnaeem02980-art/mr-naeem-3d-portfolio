@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I'M MR NAEEM — Award-Winning 3D Storytelling Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <!-- Custom Cursor & Blade Trail -->
+  <div id="custom-cursor" class="custom-cursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+  </div>
+
+  <!-- Audio Background & SFX Controller -->
+  <button id="sound-toggle" class="sound-toggle" aria-label="Toggle Sound" title="Sound Effects & Tropical Ambiance">
+    <span class="sound-icon">🔊</span>
+    <span class="sound-text">SOUND ON</span>
+  </button>
+
+  <!-- Preloader Screen -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <div class="palm-logo-pulse">
+        <svg viewBox="0 0 100 100" width="70" height="70" class="palm-svg">
+          <path d="M50 92 C50 65 52 48 50 35 M50 38 C42 28 25 28 15 36 M50 36 C42 20 28 12 18 16 M50 35 C48 18 38 6 28 8 M50 35 C52 18 62 6 72 8 M50 36 C58 20 72 12 82 16 M50 38 C58 28 75 28 85 36 M50 42 C40 45 32 55 28 66 M50 42 C60 45 68 55 72 66" fill="none" stroke="#D29C46" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="preloader-title">MR NAEEM</div>
+      <div class="preloader-sub">3D STORYTELLING PORTFOLIO</div>
+      <div class="preloader-progress-track">
+        <div id="preloader-bar" class="preloader-bar"></div>
+      </div>
+      <div class="preloader-counter" id="preloader-counter">00:00</div>
+    </div>
+  </div>
+
+  <!-- CINEMATIC START: COCONUT BREAKS OPEN TO REVEAL THE WEBSITE INSIDE -->
+  <div id="coconut-intro-stage" class="coconut-intro-stage">
+    <div id="intro-coconut-canvas" class="intro-coconut-canvas"></div>
+    <div class="intro-crack-prompt" id="intro-crack-prompt">
+      <span class="crack-spark">✨</span> CLICK OR TAP TO CRACK OPEN 🥥
+    </div>
+  </div>
+
+  <!-- CELEBRATION TOAST WHEN COCONUT BREAKS -->
+  <div id="celebration-toast" class="celebration-toast">
+    <div class="celeb-badge">
+      <span class="celeb-icon-left">🎉</span>
+      <div class="celeb-texts">
+        <strong>WELCOME TO MR NAEEM'S 3D PORTFOLIO!</strong>
+        <span>✦ Interactive 3D Web &amp; Software Engineering ✦</span>
+      </div>
+      <span class="celeb-icon-right">✨</span>
+    </div>
+  </div>
+
+  <!-- Top Sticky Navigation -->
+  <header class="site-header">
+    <div class="header-left">
+      <a href="#hero" class="brand-logo">
+        <div class="logo-code-icon">
+          <svg viewBox="0 0 36 36" width="30" height="30" fill="none">
+            <rect width="36" height="36" rx="8" fill="#331D12"/>
+            <path d="M11 18L16 13M11 18L16 23M25 18L20 13M25 18L20 23" stroke="#D49D47" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span>MR NAEEM</span>
+          <small>SOFTWARE ENGINEER &amp; 3D ARCHITECT</small>
+        </div>
+      </a>
+    </div>
+
+    <nav class="header-nav">
+      <a href="#inside-section" class="nav-link">Architecture</a>
+      <a href="#can-section" class="nav-link">3D WebGL</a>
+      <a href="#flavours" class="nav-link">Capabilities</a>
+      <a href="#reviews" class="nav-link">Testimonials</a>
+      <a href="#game-section" class="nav-link slash-pill">⚡ Debugger Game</a>
+      <button id="about-naeem-btn" class="nav-link dev-badge">About Me</button>
+    </nav>
+
+    <div class="header-right">
+      <button id="replay-intro-btn" class="replay-intro-pill" title="Replay Opening Coconut Intro">🥥 Intro</button>
+      <div class="git-status-badge" id="git-status-badge" title="Git Branch Status: Clean">
+        <span class="git-pulse-dot"></span>
+        <span class="git-branch">main</span>
+        <span class="git-clean">clean ✓</span>
+      </div>
+      <button class="menu-btn" id="menu-btn" aria-label="Open Navigation Menu">
+        <span class="menu-btn-bars">
+          <span></span>
+          <span></span>
+        </span>
+        <span class="menu-btn-label">MENU</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile / Side Navigation Drawer -->
+  <div id="side-drawer" class="side-drawer">
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <div class="drawer-content">
+      <button class="close-drawer" id="close-drawer">✕</button>
+      <div class="drawer-brand">
+        <img src="/images/naeem-profile.jpg" alt="MR NAEEM" class="drawer-avatar-img">
+        <div>
+          <h3>MR NAEEM</h3>
+          <p>Senior Software Engineer &amp; 3D Architect</p>
+        </div>
+      </div>
+      <ul class="drawer-links">
+        <li><a href="#hero" class="drawer-link">01. Engineering Hero</a></li>
+        <li><a href="#inside-section" class="drawer-link">02. System Architecture</a></li>
+        <li><a href="#can-section" class="drawer-link">03. 3D Web &amp; GLSL Shaders</a></li>
+        <li><a href="#flavours" class="drawer-link">04. Core Capabilities</a></li>
+        <li><a href="#story" class="drawer-link">05. Engineering Philosophy</a></li>
+        <li><a href="#reviews" class="drawer-link">06. Client Testimonials</a></li>
+        <li><a href="#game-section" class="drawer-link highlight-link">07. 🎮 Bug Slicing Debugger</a></li>
+      </ul>
+      <div class="drawer-footer">
+        <button class="cta-hire-btn" id="open-hire-modal-drawer">Hire MR Naeem For Your Project</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <!-- Background floating text watermark -->
+      <div class="bg-watermark">MR NAEEM</div>
+
+      <div class="hero-container">
+        <!-- Left Title -->
+        <div class="hero-left">
+          <div class="hero-profile-chip">
+            <img src="/images/naeem-profile.jpg" alt="MR NAEEM" class="hero-profile-avatar">
+            <div class="hero-profile-details">
+              <span class="hero-profile-status"><span class="status-live-dot"></span> Available for Hire</span>
+              <span class="hero-profile-role">Senior Full-Stack &amp; 3D Engineer</span>
+            </div>
+          </div>
+          <div class="badge-dev">✦ SENIOR SOFTWARE ENGINEER &amp; 3D ARCHITECT ✦</div>
+          <h1 class="hero-heading">
+            HI, I'M<br>MR NAEEM.
+          </h1>
+          <p class="hero-subtag">ARCHITECTING SCALABLE WEB SYSTEMS &amp; IMMERSIVE 3D EXPERIENCES</p>
+          <div class="hero-callouts">
+            <div class="callout-item">
+              <span class="callout-arrow">↳</span>
+              <span>Clean Architecture &amp; Scalable Systems</span>
+            </div>
+            <div class="callout-item">
+              <span class="callout-arrow">↳</span>
+              <span>Full-Stack Engineering &amp; 60 FPS WebGL</span>
+            </div>
+          </div>
+          <div class="hero-tech-row">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">Bootstrap</span>
+            <span class="tech-tag">JavaScript / DOM</span>
+            <span class="tech-tag">jQuery</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">PHP</span>
+          </div>
+        </div>
+
+        <!-- Center 3D Coconut Canvas -->
+        <div class="hero-center">
+          <div id="three-hero-container" class="three-container"></div>
+          <div class="model-drag-hint">
+            <span class="rotate-icon">↺</span> Drag 360° or Scroll Down
+          </div>
+        </div>
+
+        <!-- Right Description & CTA -->
+        <div class="hero-right">
+          <p class="hero-desc">
+            Transforming ambitious digital visions into resilient, production-ready software. Specialized in modern full-stack development, cloud-native architectures, and award-winning interactive 3D WebGL experiences that scale effortlessly.
+          </p>
+
+          <!-- Tabbed Showcase: Photo & Code Terminal -->
+          <div class="hero-showcase-tabs">
+            <div class="showcase-tab-header">
+              <button class="showcase-tab-btn active" data-tab="photo">📷 Profile Photo</button>
+              <button class="showcase-tab-btn" data-tab="terminal">💻 naeem.config.ts</button>
+            </div>
+
+            <!-- Tab 1: Photo Showcase -->
+            <div id="tab-photo-content" class="showcase-tab-pane active">
+              <div class="photo-frame">
+                <img id="hero-main-photo" src="/images/naeem-profile.jpg" alt="MR NAEEM - Senior Software Engineer" class="hero-showcase-img">
+                <div class="photo-overlay-badge">
+                  <span class="photo-badge-dot"></span>
+                  <div class="photo-badge-text">
+                    <strong id="photo-caption-title">MR NAEEM</strong>
+                    <small id="photo-caption-role">Full-Stack Web Developer &amp; 3D Specialist</small>
+                  </div>
+                </div>
+                <div class="photo-corner-tag">✦ VERIFIED</div>
+              </div>
+              <!-- Mini switcher for all 3 uploaded images -->
+              <div class="photo-switcher-thumbs">
+                <button class="thumb-btn active" data-img="/images/naeem-profile.jpg" data-title="MR NAEEM" data-role="Full-Stack Web Developer &amp; 3D Specialist" title="Executive Profile">
+                  <img src="/images/naeem-profile.jpg" alt="Profile">
+                </button>
+                <button class="thumb-btn" data-img="/images/developer-desk.jpg" data-title="DEV LAB" data-role="Late-Night Architecture &amp; Clean Code" title="Workspace">
+                  <img src="/images/developer-desk.jpg" alt="Workspace">
+                </button>
+                <button class="thumb-btn" data-img="/images/naeem-creative.jpg" data-title="CREATIVE 3D" data-role="Real-Time WebGL &amp; GPU Shaders" title="Creative Vision">
+                  <img src="/images/naeem-creative.jpg" alt="Creative">
+                </button>
+              </div>
+            </div>
+
+            <!-- Tab 2: Terminal Code Box -->
+            <div id="tab-terminal-content" class="showcase-tab-pane">
+              <div class="hero-code-terminal">
+                <div class="terminal-bar">
+                  <div class="term-dots">
+                    <span class="term-dot red"></span>
+                    <span class="term-dot yellow"></span>
+                    <span class="term-dot green"></span>
+                  </div>
+                  <span class="terminal-title">naeem.config.ts — 60 FPS</span>
+                  <button class="run-code-btn" id="run-code-btn">▶ Run Code</button>
+                </div>
+                <pre class="terminal-code"><code><span class="c-kw">export const</span> <span class="c-fn">engineer</span> = {
+  <span class="c-prop">name</span>: <span class="c-str">'MR NAEEM'</span>,
+  <span class="c-prop">role</span>: <span class="c-str">'Full-Stack Web Developer'</span>,
+  <span class="c-prop">stack</span>: [<span class="c-str">'HTML5'</span>, <span class="c-str">'CSS3'</span>, <span class="c-str">'Bootstrap'</span>, <span class="c-str">'JavaScript / DOM'</span>, <span class="c-str">'jQuery'</span>, <span class="c-str">'React'</span>, <span class="c-str">'PHP'</span>],
+  <span class="c-prop">status</span>: <span class="c-str">'Available for Hire'</span>
+};</code></pre>
+                <div class="terminal-output" id="terminal-output">
+                  <span class="term-arrow">❯</span> status: <span class="term-green">✓ Build passed (0 errors, 18ms)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#flavours" class="btn-primary">View Capabilities</a>
+            <button class="btn-secondary" id="crack-coconut-btn">Inspect 3D Core ⚡</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gyro / Interactive Sensor Hint -->
+      <div class="gyro-sensor-badge">
+        <span class="sensor-dot"></span>
+        <span>REAL-TIME 3D ENGINE • 60 FPS OPTIMIZED • ZERO LATENCY</span>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <a href="#inside-section" class="scroll-down-indicator">
+        <span>SCROLL DOWN</span>
+        <div class="scroll-arrow">↓</div>
+      </a>
+    </section>
+
+    <!-- SECTION 2: INSIDE THE ARCHITECTURE (CORE SYSTEMS & PIPELINE) -->
+    <section id="inside-section" class="inside-section">
+      <div class="section-tag">CORE ARCHITECTURE & SYSTEMS</div>
+      <h2 class="inside-heading">
+        THE ANATOMY OF RESILIENT SOFTWARE.
+      </h2>
+      <p class="inside-sub">
+        Engineered from the ground up with modular design patterns, strict typing, cloud-native scalability, and sub-millisecond execution.
+      </p>
+
+      <!-- Center interactive coconut split view -->
+      <div class="inside-stage">
+        <div id="three-split-container" class="three-container"></div>
+
+        <!-- Orbiting Engineering Badges -->
+        <div class="nutrition-badge badge-1">
+          <strong>99.99%</strong>
+          <span>High Availability</span>
+        </div>
+        <div class="nutrition-badge badge-2">
+          <strong>0 TECH DEBT</strong>
+          <span>Clean Maintainable Code</span>
+        </div>
+        <div class="nutrition-badge badge-3">
+          <strong>&lt; 30 MS</strong>
+          <span>Sub-Second Latency</span>
+        </div>
+        <div class="nutrition-badge badge-4">
+          <strong>Cloud Native</strong>
+          <span>Docker & Microservices</span>
+        </div>
+      </div>
+
+      <!-- Progress status bar as seen in video -->
+      <div class="harvest-progress-bar">
+        <div class="progress-info">
+          <span class="status-name" id="harvest-status-name">PIPELINE: ARCHITECTURE & SHADERS</span>
+          <span class="status-number" id="harvest-status-num">009</span>
+        </div>
+        <div class="status-line">
+          <div class="status-fill" id="harvest-status-fill"></div>
+        </div>
+      </div>
+
+      <!-- Story transformation step controls matching the video -->
+      <div class="story-step-pills">
+        <button class="step-pill active" data-step="0">1. Architecture Blueprint 📐</button>
+        <button class="step-pill" data-step="0.5">2. Engineering & Code ⚡</button>
+        <button class="step-pill" data-step="1">3. Production Release 🚀</button>
+      </div>
+    </section>
+
+    <!-- SECTION 3: THE 3D PRODUCT CAN TRANSFORMATION -->
+    <section id="can-section" class="can-section">
+      <div class="can-container">
+        <!-- Left details -->
+        <div class="can-left">
+          <h2 class="can-title">3D WEBGL ENGINE</h2>
+          <p class="can-text">
+            Custom procedural shaders, GPU vertex displacement, and low-latency Three.js render pipelines engineered for rock-solid 60 FPS performance on all viewports.
+          </p>
+          <div class="canned-indicator">
+            <span class="canned-label">BUILD</span>
+            <span class="canned-num" id="canned-num">074</span>
+          </div>
+          <div class="can-buttons">
+            <button class="flavor-pill active" data-flavor="natural">HTML, CSS &amp; Bootstrap</button>
+            <button class="flavor-pill" data-flavor="pineapple">JavaScript DOM &amp; React</button>
+            <button class="flavor-pill" data-flavor="watermelon">PHP &amp; Full-Stack</button>
+          </div>
+        </div>
+
+        <!-- Center 3D Can -->
+        <div class="can-center">
+          <div id="three-can-container" class="three-container"></div>
+          <div class="can-drag-hint">
+            <span>↔</span> Drag To Spin The 3D Engine 360°
+          </div>
+        </div>
+
+        <!-- Right details -->
+        <div class="can-right">
+          <p class="can-subtext">
+            Specialized in responsive HTML5/CSS3 layouts, Bootstrap grid systems, dynamic JavaScript DOM scripting, jQuery animations, React.js components, and PHP server-side backends.
+          </p>
+          <a href="#flavours" class="explore-link">
+            <span>Explore Engineering Capabilities</span>
+            <span class="arrow-circle">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: FRESH STICKER BANNER WITH SCALLOPED EDGES -->
+    <section class="fresh-banner-section">
+      <!-- Top Scalloped Divider -->
+      <div class="scallop-divider top-scallop">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+          <path d="M0,0 C100,50 100,0 200,0 C300,50 300,0 400,0 C500,50 500,0 600,0 C700,50 700,0 800,0 C900,50 900,0 1000,0 C1100,50 1100,0 1200,0 L1200,60 L0,60 Z" fill="#351E13"/>
+        </svg>
+      </div>
+
+      <div class="fresh-banner-content">
+        <div class="sticker-left">
+          <div class="sticker-circle">
+            <span>⚡</span>
+            <small>PROD READY</small>
+          </div>
+        </div>
+
+        <h2 class="fresh-heading">
+          ENTERPRISE-GRADE ARCHITECTURE. HIGH-AVAILABILITY CLOUD SYSTEMS, LIGHTNING RUNTIMES, AND BULLETPROOF 
+          <span class="fresh-badge-highlight">CODE</span>, 
+          BUILT TO SCALE GLOBALLY.
+        </h2>
+
+        <div class="sticker-right">
+          <div class="stamp-box">
+            <span class="stamp-text">Proven Engineering<br>Delivered On Time !</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Scalloped Divider -->
+      <div class="scallop-divider bottom-scallop">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+          <path d="M0,60 C100,10 100,60 200,60 C300,10 300,60 400,60 C500,10 500,60 600,60 C700,10 700,60 800,60 C900,10 900,60 1000,60 C1100,10 1100,60 1200,60 L1200,0 L0,0 Z" fill="#351E13"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CORE ENGINEERING CAPABILITIES (PRODUCT CARDS) -->
+    <section id="flavours" class="flavours-section">
+      <div class="flavours-header">
+        <h2 class="flavours-title">
+          CORE WEB &amp; SOFTWARE <span class="sun-icon">⚙️</span> CAPABILITIES
+        </h2>
+      </div>
+
+      <div class="flavours-grid">
+        <!-- Card 1: HTML, CSS & Bootstrap -->
+        <div class="flavor-card card-pure" data-flavor="natural">
+          <div class="flavor-visual">
+            <div class="card-3d-can" id="can-card-1"></div>
+            <div class="fruit-float-bg fruit-coconut"></div>
+          </div>
+          <div class="flavor-info">
+            <h3 class="flavor-name">HTML5, CSS3 &amp; Bootstrap</h3>
+            <p class="flavor-tag">Responsive UI &amp; Mobile-First Grid</p>
+            <button class="add-flavor-btn" title="View details">+</button>
+          </div>
+        </div>
+
+        <!-- Card 2: JavaScript DOM & React -->
+        <div class="flavor-card card-pineapple" data-flavor="pineapple">
+          <div class="flavor-visual">
+            <div class="card-3d-can" id="can-card-2"></div>
+            <div class="fruit-float-bg fruit-pineapple"></div>
+          </div>
+          <div class="flavor-info">
+            <h3 class="flavor-name">JavaScript, DOM &amp; React</h3>
+            <p class="flavor-tag">Interactive SPAs &amp; jQuery Animation</p>
+            <button class="add-flavor-btn" title="View details">+</button>
+          </div>
+        </div>
+
+        <!-- Card 3: PHP & Backend -->
+        <div class="flavor-card card-watermelon" data-flavor="watermelon">
+          <div class="flavor-visual">
+            <div class="card-3d-can" id="can-card-3"></div>
+            <div class="fruit-float-bg fruit-watermelon"></div>
+          </div>
+          <div class="flavor-info">
+            <h3 class="flavor-name">PHP &amp; Full-Stack Backend</h3>
+            <p class="flavor-tag">MySQL Databases, CRUD &amp; REST APIs</p>
+            <button class="add-flavor-btn" title="View details">+</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: STORY & POLAROID GALLERY (ENGINEERING PHILOSOPHY) -->
+    <section id="story" class="story-section">
+      <div class="story-container">
+        <div class="story-text-col">
+          <h2 class="story-heading">
+            SOFTWARE CRAFTED WITH PASSION & ARCHITECTURAL RIGOR.
+          </h2>
+          <p class="story-body">
+            Building digital products requires more than syntax—it demands robust system design, clean abstractions, high test coverage, and relentless performance optimization. From initial concept to zero-downtime deployment, every system is engineered to thrive at scale.
+          </p>
+          <div class="story-quote">
+            "Simplicity is the prerequisite for reliability. We engineer systems that last."
+          </div>
+          <a href="#can-section" class="btn-primary">Explore Stack</a>
+        </div>
+
+        <!-- Polaroid Gallery with realistic tilts featuring real MR Naeem photos -->
+        <div class="polaroid-gallery">
+          <div class="polaroid-item polaroid-1">
+            <div class="polaroid-inner">
+              <div class="polaroid-img-wrap">
+                <img src="/images/naeem-profile.jpg" alt="MR NAEEM - Senior Software Engineer" class="polaroid-real-img">
+              </div>
+              <div class="polaroid-caption">MR NAEEM • Software Engineer</div>
+            </div>
+          </div>
+
+          <div class="polaroid-item polaroid-2">
+            <div class="polaroid-inner">
+              <div class="polaroid-img-wrap">
+                <img src="/images/developer-desk.jpg" alt="Late-Night Architecture &amp; Clean Code" class="polaroid-real-img">
+              </div>
+              <div class="polaroid-caption">Late-Night Architecture &amp; Code</div>
+            </div>
+          </div>
+
+          <div class="polaroid-item polaroid-3">
+            <div class="polaroid-inner">
+              <div class="polaroid-img-wrap">
+                <img src="/images/naeem-creative.jpg" alt="Creative 3D Graphics &amp; Shader Magic" class="polaroid-real-img">
+              </div>
+              <div class="polaroid-caption">Creative 3D &amp; Shader Wizardry</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: TESTIMONIALS / "WHAT LEADERS SAY !" CARDS -->
+    <section id="reviews" class="reviews-section">
+      <div class="reviews-header">
+        <h2 class="reviews-title">WHAT CLIENTS &amp; TEAMS SAY !</h2>
+        <div class="reviews-controls">
+          <button class="review-arrow prev" id="rev-prev" aria-label="Previous">←</button>
+          <button class="review-arrow next" id="rev-next" aria-label="Next">→</button>
+        </div>
+      </div>
+
+      <div class="reviews-track-container">
+        <div class="reviews-track" id="reviews-track">
+          <div class="review-card">
+            <div class="quote-mark">❝</div>
+            <p class="review-text">DELIVERED OUR COMPLEX 3D PLATFORM AHEAD OF SCHEDULE. EXCEPTIONAL CODE QUALITY!</p>
+            <div class="review-author">@cto.techflow</div>
+          </div>
+          <div class="review-card">
+            <div class="quote-mark">❝</div>
+            <p class="review-text">HIS FULL-STACK ARCHITECTURE SCALED TO 500K USERS WITH ZERO BOTTLENECK.</p>
+            <div class="review-author">@founder.saasgrid</div>
+          </div>
+          <div class="review-card">
+            <div class="quote-mark">❝</div>
+            <p class="review-text">DEEP SOFTWARE ENGINEERING RIGOR COMBINED WITH MESMERIZING 3D CREATIVE SKILLS.</p>
+            <div class="review-author">@vp.digitalstudio</div>
+          </div>
+          <div class="review-card">
+            <div class="quote-mark">❝</div>
+            <p class="review-text">CLEANEST CODEBASE, THOROUGH CI/CD AUTOMATION, AND TOP-TIER SECURITY.</p>
+            <div class="review-author">@lead.devteam</div>
+          </div>
+          <div class="review-card">
+            <div class="quote-mark">❝</div>
+            <p class="review-text">OUR WEB CONVERSIONS INCREASED BY 340% AFTER LAUNCHING HIS 3D EXPERIENCE.</p>
+            <div class="review-author">@headofproduct</div>
+          </div>
+          <div class="review-card">
+            <div class="quote-mark">❝</div>
+            <p class="review-text">A RARE ENGINEER WHO EXCELS AT BOTH BACKEND CLOUD INFRA AND LOW-LEVEL WEBGL.</p>
+            <div class="review-author">@principal.fintech</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: SOFTWARE ENGINEERING PIPELINE & ENGAGEMENT -->
+    <section class="box-section">
+      <div class="box-grid">
+        <div class="box-card-left">
+          <span class="box-tag">END-TO-END DEVELOPMENT PIPELINE</span>
+          <h2 class="box-heading">THE COMPLETE ENGINEERING SUITE.</h2>
+          <p class="box-desc">
+            Need an engineering lead or senior full-stack architect? From initial system design documents (SDD) to automated CI/CD pipelines, Dockerized deployments, and clean maintainable code, partner with MR Naeem for world-class craftsmanship.
+          </p>
+          <div class="engineering-deliverables">
+            <div class="deliverable-item"><span>✓</span> Semantic HTML5, Modern CSS3 &amp; Responsive Bootstrap 5</div>
+            <div class="deliverable-item"><span>✓</span> Native JavaScript (DOM) Manipulation &amp; jQuery Animations</div>
+            <div class="deliverable-item"><span>✓</span> Modern React.js Architecture &amp; Component State Hooks</div>
+            <div class="deliverable-item"><span>✓</span> Full-Stack PHP Backend Development &amp; MySQL Database Systems</div>
+          </div>
+          <div class="box-actions">
+            <button class="btn-primary" id="btn-get-drink">Hire MR Naeem</button>
+            <button class="btn-outline" id="btn-show-tech-sec8">View Full Architecture</button>
+          </div>
+        </div>
+
+        <div class="box-card-right">
+          <div class="pack-badge">FULL-STACK • CLOUD • 3D SHADERS</div>
+          <div class="can-showcase-preview" id="box-can-preview">
+            <!-- 3D or visual presentation of 12 pack -->
+            <div class="can-pack-stack">
+              <div class="can-illus main-can"></div>
+              <div class="can-illus shadow-can-1"></div>
+              <div class="can-illus shadow-can-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: BUG SLICER: INTERACTIVE CANVAS DEBUGGING ENGINE -->
+    <section id="game-section" class="game-section">
+      <!-- Scalloped divider on top of game -->
+      <div class="scallop-divider top-scallop-game">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+          <path d="M0,0 C100,50 100,0 200,0 C300,50 300,0 400,0 C500,50 500,0 600,0 C700,50 700,0 800,0 C900,50 900,0 1000,0 C1100,50 1100,0 1200,0 L1200,60 L0,60 Z" fill="#2D190E"/>
+        </svg>
+      </div>
+
+      <div class="game-wrapper">
+        <!-- Giant background watermark -->
+        <div class="game-bg-naeem">MR NAEEM</div>
+        <div class="palm-trees-silhouette">
+          <div class="tree-silhouette left-tree"></div>
+          <div class="tree-silhouette right-tree"></div>
+        </div>
+
+        <div class="game-header-ui">
+          <h2 class="game-title">BUG SLICER: REAL-TIME DEBUGGER</h2>
+          <p class="game-subtitle">SWIPE OR DRAG CURSOR TO SLICE BUGS, SYNTAX ERRORS &amp; MEMORY LEAKS</p>
+          <div class="game-tip-pill">⚡ Slice the Bugs to Compile Clean Code • 60 FPS Canvas Physics</div>
+        </div>
+
+        <!-- Canvas for Fruit Ninja game -->
+        <canvas id="fruit-canvas" class="fruit-canvas"></canvas>
+
+        <!-- Live Game Overlay Score -->
+        <div class="game-hud">
+          <div class="hud-item score-box">
+            <span class="hud-label">DEBUGGED BUGS</span>
+            <span class="hud-val" id="game-score">0</span>
+          </div>
+          <div class="hud-item combo-box" id="combo-display">
+            <span class="hud-label">COMPILE COMBO</span>
+            <span class="hud-val" id="game-combo">x1</span>
+          </div>
+          <button id="reset-game-btn" class="hud-reset-btn">Restart Debugger</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER & MR NAEEM CREDITS -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3 class="footer-logo">MR NAEEM</h3>
+        <p class="footer-tagline">
+          Senior Software Engineer &amp; 3D Web Architect.<br>Building robust, scalable applications with clean code, modern cloud stacks, and WebGL.
+        </p>
+      </div>
+
+      <div class="footer-nav">
+        <a href="#hero">Home</a>
+        <a href="#inside-section">Architecture</a>
+        <a href="#can-section">3D WebGL</a>
+        <a href="#flavours">Capabilities</a>
+        <a href="#story">Philosophy</a>
+        <a href="#reviews">Testimonials</a>
+        <a href="#game-section">Physics Game</a>
+        <a href="#" id="footer-contact-link">Contact</a>
+      </div>
+    </div>
+
+    <!-- Developer Credits & Showcase Banner -->
+    <div class="developer-showcase-bar">
+      <div class="dev-info-left">
+        <img src="/images/naeem-profile.jpg" alt="MR NAEEM" class="dev-avatar-img">
+        <div class="dev-texts">
+          <strong>MR NAEEM</strong>
+          <span>Senior Software Engineer &amp; Full-Stack 3D Web Architect</span>
+        </div>
+      </div>
+      <div class="dev-actions">
+        <button class="btn-hire-naeem" id="btn-hire-naeem-footer">Hire MR Naeem For Your Project</button>
+        <button class="btn-view-code" id="btn-show-tech">View Engineering Tech Stack</button>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="copy-left">
+        © 2026 MR NAEEM. All Rights Reserved.
+      </div>
+      <div class="copy-right">
+        Engineered with Clean Code, WebGL &amp; Architectural Rigor ⚡
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL: ABOUT MR NAEEM / HIRE MODAL -->
+  <div id="hire-modal" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close">✕</button>
+      <div class="modal-header">
+        <img src="/images/naeem-profile.jpg" alt="MR NAEEM" class="modal-avatar-img">
+        <div>
+          <h3 class="modal-name">MR NAEEM</h3>
+          <p class="modal-role">Senior Software Engineer &amp; Full-Stack 3D Architect</p>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <p class="modal-intro">
+          Specializing in <strong>scalable full-stack web applications, resilient cloud architectures</strong>, and award-winning 3D WebGL interactive storytelling experiences. Passionate about writing elegant, high-throughput, and clean code that scales seamlessly.
+        </p>
+
+        <div class="modal-skills">
+          <span class="skill-tag">HTML5 &amp; Semantic Web</span>
+          <span class="skill-tag">CSS3 &amp; Animations</span>
+          <span class="skill-tag">Bootstrap 5 Framework</span>
+          <span class="skill-tag">JavaScript &amp; DOM Manipulation</span>
+          <span class="skill-tag">jQuery Interactivity</span>
+          <span class="skill-tag">React.js Components</span>
+          <span class="skill-tag">PHP &amp; MySQL Backend</span>
+          <span class="skill-tag">Responsive Mobile-First UI</span>
+          <span class="skill-tag">RESTful APIs &amp; AJAX</span>
+          <span class="skill-tag">Three.js &amp; 3D WebGL</span>
+        </div>
+
+        <div class="contact-links">
+          <a href="https://wa.me/?text=Hello%20MR%20Naeem,%20I%20reviewed%20your%20software%20engineering%20portfolio%20and%20would%20like%20to%20collaborate%20on%20a%20project!" target="_blank" class="contact-btn btn-whatsapp">
+            <span>💬</span> Chat On WhatsApp
+          </a>
+          <a href="mailto:contact@mrnaeem.dev" class="contact-btn btn-email">
+            <span>✉️</span> Email MR Naeem
+          </a>
+        </div>
+
+        <div class="project-inquiry-box">
+          <h4>Have an ambitious project or engineering challenge?</h4>
+          <p>Get in touch today to architect, build, and deploy your next high-performance digital product.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tech Stack Modal -->
+  <div id="tech-modal" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close" id="tech-modal-close">✕</button>
+      <h3 class="modal-title">Software Engineering &amp; Technology Stack</h3>
+      <ul class="tech-list">
+        <li><strong>HTML5, CSS3 &amp; Bootstrap:</strong> Semantic responsive layouts, mobile-first grid systems, flexbox architecture, and cross-browser CSS styling.</li>
+        <li><strong>JavaScript (DOM) &amp; jQuery:</strong> Native DOM tree manipulation, custom UI event handlers, asynchronous AJAX requests, and interactive jQuery animations.</li>
+        <li><strong>React.js:</strong> Modern component-driven single-page applications, functional state hooks, props lifecycle, and scalable UI modularity.</li>
+        <li><strong>PHP &amp; MySQL Backend:</strong> Server-side scripting, authentication, secure database CRUD operations, and high-performance REST APIs.</li>
+        <li><strong>Three.js &amp; 3D WebGL:</strong> Procedural 3D mesh rendering, real-time lighting shaders, physics-based canvas animations, and Web Audio API synthesis.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
+
